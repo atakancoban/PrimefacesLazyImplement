@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+
+	<h:form id="form">
+		<p:dataTable id="dtCustomer" value="#{customerBean.lazyModelCustomer}"
+			lazy="true" var="customer" editable="true" paginator="true"
+			paginatorPosition="bottom" rows="8"
+			currentPageReportTemplate="{startRecord}-{endRecord} records are listed. Totally: {totalRecords} records"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+
+			<p:column headerText="ID">
+				<h:outputText value="#{customer.personId}" />
+			</p:column>
+			
+			<p:column headerText="First Name" filterBy="#{customer.firstname}" sortBy="#{customer.firstname}">
+				<h:outputText value="#{customer.firstname}" />
+			</p:column>
+			<p:column headerText="Last Name">
+				<h:outputText value="#{customer.lastname}" />
+			</p:column>
+			<p:column headerText="Job">
+				<h:outputText value="#{customer.job}" />
+			</p:column>
+			<p:column headerText="City">
+				<h:outputText value="#{customer.city}" />
+			</p:column>
+			<p:column headerText="Adress">
+				<h:outputText value="#{customer.address}" />
+			</p:column>
+			
+		</p:dataTable>
+
+	</h:form>
+</body>
+</html>

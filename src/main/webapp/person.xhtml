@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+
+	<h:form id="form">
+		<p:dataTable id="dtPerson" value="#{personBean.listPersonEntity}"
+			var="person" editable="true" paginator="true"
+			paginatorPosition="bottom" rows="8"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+
+			<p:ajax event="rowEdit" listener="#{personBean.onRowEdit}"
+				update=":form:dtPerson" />
+
+
+			<p:column headerText="Person ID" sortBy="#{person.personId}"
+				filterBy="#{person.personId}">
+				<h:outputText value="#{person.personId}" />
+			</p:column>
+
+			<p:column headerText="First Name">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{person.firstname}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{person.firstname}" style="width:90%" />
+					</f:facet>
+				</p:cellEditor>
+
+			</p:column>
+
+			<p:column headerText="Last Name">
+
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{person.lastname}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{person.lastname}" style="width:90%" />
+					</f:facet>
+				</p:cellEditor>
+
+
+			</p:column>
+
+			<p:column headerText="Job">
+
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{person.job}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{person.job}" style="width:90%" />
+					</f:facet>
+				</p:cellEditor>
+
+
+			</p:column>
+
+			<p:column headerText="City">
+
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{person.city}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{person.city}" style="width:90%" />
+					</f:facet>
+				</p:cellEditor>
+
+
+			</p:column>
+
+			<p:column headerText="Adress">
+
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{person.address}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{person.address}" style="width:90%" />
+					</f:facet>
+				</p:cellEditor>
+
+			</p:column>
+
+			<p:column headerText="Delete">
+				<p:commandButton value="Delete"
+					actionListener="#{personBean.onDelete(person)}"
+					update=":form:dtPerson" />
+			</p:column>
+
+
+			<p:column headerText="Update">
+				<p:rowEditor />
+			</p:column>
+
+		</p:dataTable>
+
+		<p:panelGrid columns="1">
+
+
+			<p:inputText placeholder="Firstname" value="#{personBean.firstname}" />
+
+			<p:inputText placeholder="Lastname" value="#{personBean.lastname}" />
+
+			<p:inputText placeholder="Job" value="#{personBean.job}" />
+
+			<p:inputText placeholder="City" value="#{personBean.city}" />
+
+			<p:inputText placeholder="Adress" value="#{personBean.adress}" />
+
+		</p:panelGrid>
+
+		<p:commandButton value="btnAddPerson" update=":form:dtPerson"
+			actionListener="#{personBean.onAddPerson()}" />
+
+
+
+
+	</h:form>
+</body>
+</html>

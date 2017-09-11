@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean id="genericDao" class="com.atakancoban.dao.base.GenericDaoImpl"
+		abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="personDao" class="com.atakancoban.dao.PersonDaoImpl"
+		parent="genericDao" />
+
+	<bean id="carDao" name="carDao" class="com.atakancoban.dao.CarDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- Lazy data model örneği -->
+	<bean id="customerDao" class="com.atakancoban.dao.CustomerDaoImpl"
+		parent="genericDao" />
+
+</beans>
