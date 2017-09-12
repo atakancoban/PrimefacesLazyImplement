@@ -7,7 +7,7 @@ Hibernate 5 usage/Kullanımı
 CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
 CriteriaQuery<ZzAtakanPerson> critQuery = criteriaBuilder.createQuery(ZzAtakanPerson.class);
 ...
-
+Konu anlatımı : http://www.atakancoban.com/index.php/2017/09/12/lazydatamodel-kullanimi/
 
 ## UNUTMA 
 Projei indirdiğiniz zaman **testcon.xml** ve **hibernate.cfg.xml**içindeki connection bilgilerinizi güncelleyiniz.
