@@ -3,6 +3,11 @@ Primefaces lazy data model(Hibernate ile) implement edilmesi.LazyDataModel hiber
 Deprecated createCriteria method in Hibernate 5
 Hibernate 5 ile createCriteria() metodu kaldırıldı. Güncel hali ile bu projede implement edildi.
 
+Hibernate 5 usage/Kullanımı
+CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+CriteriaQuery<ZzAtakanPerson> critQuery = criteriaBuilder.createQuery(ZzAtakanPerson.class);
+...
+
 
 ## UNUTMA 
 Projei indirdiğiniz zaman **testcon.xml** ve **hibernate.cfg.xml**içindeki connection bilgilerinizi güncelleyiniz.
